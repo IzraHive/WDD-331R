@@ -2,6 +2,17 @@
 // CYBERPUNK HEADER
 // ===================================
 
+/* GitHub Star Fix */
+header .link-github svg {
+  width: 1.2em !important;   // scales relative to link text
+  height: 1.2em !important;
+  max-width: 24px !important; 
+  max-height: 24px !important;
+  vertical-align: middle !important;
+  fill: currentColor !important;
+  flex-shrink: 0;            // prevent shrinking in flex layout
+}
+
 header {
   position: relative;
   background: var(--color-background-alt);
