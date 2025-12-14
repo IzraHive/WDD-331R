@@ -1,28 +1,53 @@
 // ===================================
-// Theme Variables & Custom Properties
+// CYBERPUNK NEON THEME
 // ===================================
 
 :root {
-  // COLORS - Update these for your theme!
-  --color-primary: hsl(220, 90%, 56%);
-  --color-secondary: hsl(160, 80%, 45%);
-  --color-accent: hsl(340, 82%, 52%);
+  // NEON COLORS
+  --color-neon-pink: hsl(330, 100%, 60%);
+  --color-neon-cyan: hsl(180, 100%, 50%);
+  --color-neon-purple: hsl(280, 100%, 60%);
+  --color-neon-green: hsl(120, 100%, 50%);
+  --color-neon-yellow: hsl(60, 100%, 50%);
   
-  --color-text: hsl(220, 20%, 20%);
-  --color-text-light: hsl(220, 15%, 45%);
-  --color-background: hsl(0, 0%, 98%);
-  --color-surface: hsl(0, 0%, 100%);
-  --color-border: hsl(220, 15%, 85%);
+  // MAIN THEME COLORS
+  --color-primary: var(--color-neon-cyan);
+  --color-secondary: var(--color-neon-pink);
+  --color-accent: var(--color-neon-purple);
   
-  // GRADIENTS
+  // DARK CYBERPUNK BACKGROUNDS
+  --color-text: hsl(180, 20%, 90%);
+  --color-text-light: hsl(180, 15%, 70%);
+  --color-text-glow: hsl(180, 100%, 80%);
+  --color-background: hsl(240, 20%, 8%);
+  --color-background-alt: hsl(240, 18%, 12%);
+  --color-surface: hsl(240, 15%, 15%);
+  --color-surface-raised: hsl(240, 15%, 18%);
+  --color-border: hsl(240, 20%, 25%);
+  
+  // NEON GRADIENTS
+  --gradient-neon: linear-gradient(135deg, 
+    var(--color-neon-cyan) 0%, 
+    var(--color-neon-pink) 50%,
+    var(--color-neon-purple) 100%);
   --gradient-primary: linear-gradient(135deg, 
-    var(--color-primary) 0%, 
-    var(--color-secondary) 100%);
+    var(--color-neon-cyan) 0%, 
+    var(--color-neon-purple) 100%);
   --gradient-accent: radial-gradient(circle at top right,
-    var(--color-accent),
-    var(--color-primary));
+    var(--color-neon-pink),
+    var(--color-neon-purple));
   
-  // SPACING - Using clamp for responsive spacing
+  // GLOW EFFECTS
+  --glow-cyan: 0 0 10px var(--color-neon-cyan),
+               0 0 20px var(--color-neon-cyan),
+               0 0 30px var(--color-neon-cyan);
+  --glow-pink: 0 0 10px var(--color-neon-pink),
+               0 0 20px var(--color-neon-pink),
+               0 0 30px var(--color-neon-pink);
+  --glow-purple: 0 0 10px var(--color-neon-purple),
+                 0 0 20px var(--color-neon-purple);
+  
+  // SPACING
   --space-3xs: clamp(0.25rem, 0.5vw, 0.5rem);
   --space-2xs: clamp(0.5rem, 1vw, 0.75rem);
   --space-xs: clamp(0.75rem, 1.5vw, 1rem);
@@ -33,10 +58,10 @@
   --space-2xl: clamp(4rem, 8vw, 6rem);
   --space-3xl: clamp(6rem, 12vw, 8rem);
   
-  // TYPOGRAPHY
-  --font-family-base: system-ui, -apple-system, sans-serif;
-  --font-family-heading: 'Georgia', serif;
-  --font-family-mono: 'Courier New', monospace;
+  // TYPOGRAPHY - Monospace for cyber aesthetic
+  --font-family-base: 'Courier New', 'Courier', monospace;
+  --font-family-heading: 'Orbitron', 'Arial Black', sans-serif;
+  --font-family-mono: 'Fira Code', 'Courier New', monospace;
   
   --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
   --font-size-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
@@ -54,20 +79,20 @@
   --line-height-normal: 1.6;
   --line-height-relaxed: 1.8;
   
-  // SHADOWS
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  // SHADOWS WITH GLOW
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.7);
+  --shadow-neon: var(--glow-cyan);
   
   // BORDERS
-  --border-radius-sm: 0.25rem;
-  --border-radius-md: 0.5rem;
-  --border-radius-lg: 1rem;
+  --border-radius-sm: 2px;
+  --border-radius-md: 4px;
+  --border-radius-lg: 8px;
   --border-radius-full: 9999px;
   
-  --border-width: 1px;
-  --border-width-thick: 2px;
+  --border-width: 2px;
+  --border-width-thick: 3px;
   
   // TRANSITIONS
   --transition-fast: 150ms ease;
@@ -84,9 +109,9 @@
   --content-width-wide: 90rem;
 }
 
-// SCSS Variables (for calculations)
-$breakpoint-sm: 36em;   // 576px
-$breakpoint-md: 48em;   // 768px
-$breakpoint-lg: 62em;   // 992px
-$breakpoint-xl: 75em;   // 1200px
-$breakpoint-2xl: 87.5em; // 1400px
+// SCSS Variables
+$breakpoint-sm: 36em;
+$breakpoint-md: 48em;
+$breakpoint-lg: 62em;
+$breakpoint-xl: 75em;
+$breakpoint-2xl: 87.5em;
