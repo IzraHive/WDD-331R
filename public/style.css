@@ -706,15 +706,25 @@ section:last-child {
   flex: 1;
 }
 
-/* GitHub Star Fix */
-header .link-github svg {
-  width: 1.2em !important;
-  height: 1.2em !important;
-  max-width: 24px !important;
-  max-height: 24px !important;
-  vertical-align: middle !important;
-  fill: currentColor !important;
+/* GitHub Star Fixed Size */
+header .link-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+header .link-github .icon-star {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
+}
+
+header .link-github .icon-star svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  vertical-align: middle;
 }
 
 header {
