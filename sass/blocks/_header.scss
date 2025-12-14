@@ -106,4 +106,71 @@ header {
   }
 }
 
-// Add data-text attribute via JavaScript or keep it simple
+  .container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+
+    // Fix GitHub star icon size
+    .link-github {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em; // spacing between icon and text
+      font-size: var(--font-size-md);
+
+      svg {
+        width: 1em;
+        height: 1em;
+        vertical-align: middle;
+        fill: currentColor; // optional: match text color
+      }
+    }
+  }
+
+  h1 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-md);
+    animation: fadeInDown 1s var(--ease-out), neonFlicker 5s infinite;
+    position: relative;
+    display: inline-block;
+
+    &::before,
+    &::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before {
+      left: 2px;
+      text-shadow: -2px 0 var(--color-neon-pink);
+      clip: rect(44px, 450px, 56px, 0);
+      animation: glitch 5s infinite linear alternate-reverse;
+    }
+
+    &::after {
+      left: -2px;
+      text-shadow: -2px 0 var(--color-neon-cyan);
+      clip: rect(44px, 450px, 56px, 0);
+      animation: glitch 3s infinite linear alternate-reverse;
+    }
+  }
+  
+  p {
+    font-size: var(--font-size-lg);
+    opacity: 0.9;
+    max-width: 60ch;
+    margin-inline: auto;
+    animation: fadeInUp 1s 0.3s var(--ease-out) backwards;
+    color: var(--color-text-light);
+    font-family: var(--font-family-mono);
+
+    &::before {
+      content: '> ';
+      color: var(--color-neon-cyan);
+      text-shadow: var(--glow-cyan);
+    }
+  }
