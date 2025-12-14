@@ -1,90 +1,94 @@
 // ===================================
-// Card Components
+// CYBERPUNK CARDS
 // ===================================
 
 .card {
-  @include card;
-  transition: transform var(--transition-base),
-              box-shadow var(--transition-base);
-  
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-  }
-  
-  // Card header
-  &__header {
-    margin-bottom: var(--space-md);
-    padding-bottom: var(--space-md);
-    border-bottom: 1px solid var(--color-border);
-  }
-  
-  // Card title
-  &__title {
-    font-size: var(--font-size-xl);
-    margin-bottom: var(--space-xs);
-  }
-  
-  // Card body
-  &__body {
-    color: var(--color-text-light);
-  }
-  
-  // Card footer
-  &__footer {
-    margin-top: var(--space-md);
-    padding-top: var(--space-md);
-    border-top: 1px solid var(--color-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-
-// Feature card with gradient
-.card--feature {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
-  border: 2px solid transparent;
-  background-image: var(--gradient-primary);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
+  transition: all var(--transition-base);
   
+  // Neon corner accent
   &::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
+    width: 30px;
+    height: 30px;
+    border-top: 3px solid var(--color-neon-cyan);
+    border-left: 3px solid var(--color-neon-cyan);
+    box-shadow: var(--glow-cyan);
+    transition: all var(--transition-base);
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
     right: 0;
-    height: 4px;
-    background: var(--gradient-primary);
+    width: 30px;
+    height: 30px;
+    border-bottom: 3px solid var(--color-neon-pink);
+    border-right: 3px solid var(--color-neon-pink);
+    box-shadow: var(--glow-pink);
+    transition: all var(--transition-base);
+  }
+  
+  &:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-neon-cyan);
+    box-shadow: 
+      var(--shadow-lg),
+      var(--glow-cyan);
+    
+    &::before {
+      width: 50px;
+      height: 50px;
+    }
+    
+    &::after {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  
+  h3 {
+    position: relative;
+    z-index: 1;
+    margin-bottom: var(--space-sm);
+  }
+  
+  p {
+    position: relative;
+    z-index: 1;
+    color: var(--color-text-light);
   }
 }
 
-// Icon card
-.card--icon {
+// Glowing card variant
+.card--glow {
+  border-color: var(--color-neon-cyan);
+  animation: neonBorder 3s ease-in-out infinite;
+}
+
+// Feature card with icon
+.card--feature {
   text-align: center;
   
   &::before {
-    content: attr(data-icon);
+    content: '◆';
+    position: static;
     display: block;
     font-size: 3em;
+    color: var(--color-neon-cyan);
+    text-shadow: var(--glow-cyan);
     margin-bottom: var(--space-md);
-  }
-}
-
-// Image card
-.card--image {
-  padding: 0;
-  overflow: hidden;
-  
-  img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .card__body {
-    padding: var(--space-md);
+    border: none;
+    animation: float 3s ease-in-out infinite;
   }
 }
