@@ -1,15 +1,26 @@
 // ===================================
-// Typography Styles
+// CYBERPUNK TYPOGRAPHY
 // ===================================
+
+// Google Font Import (add to top of style.scss or HTML)
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
 
 body {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
   color: var(--color-text);
+  background: var(--color-background);
+  
+  // Subtle grid background
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-attachment: fixed;
 }
 
-// HEADINGS
+// HEADINGS with GLOW
 h1,
 h2,
 h3,
@@ -20,10 +31,15 @@ h6 {
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-glow);
+  text-shadow: var(--glow-cyan);
 }
 
 h1 {
   font-size: var(--font-size-3xl);
+  animation: glowPulse 3s ease-in-out infinite;
 }
 
 h2 {
@@ -38,6 +54,19 @@ h4 {
   font-size: var(--font-size-lg);
 }
 
+// GLOW PULSE ANIMATION
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: var(--glow-cyan);
+  }
+  50% {
+    text-shadow: 
+      0 0 20px var(--color-neon-cyan),
+      0 0 40px var(--color-neon-cyan),
+      0 0 60px var(--color-neon-cyan);
+  }
+}
+
 // PARAGRAPHS
 p {
   margin-bottom: var(--space-md);
@@ -47,45 +76,98 @@ p {
   }
 }
 
-// LINKS
+// LINKS with NEON EFFECT
 a {
   color: var(--color-primary);
-  transition: color var(--transition-base);
+  text-decoration: none;
+  position: relative;
+  transition: all var(--transition-base);
+  text-shadow: 0 0 5px var(--color-neon-cyan);
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-neon);
+    box-shadow: var(--glow-cyan);
+    transition: width var(--transition-base);
+  }
   
   &:hover {
-    color: var(--color-secondary);
+    color: var(--color-neon-pink);
+    text-shadow: var(--glow-pink);
+    
+    &::after {
+      width: 100%;
+    }
   }
   
   &:focus-visible {
     outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
+    outline-offset: 4px;
+    box-shadow: var(--glow-cyan);
   }
 }
 
-// LISTS
+// LISTS with NEON BULLETS
 ul,
 ol {
   margin-bottom: var(--space-md);
   
   li {
     margin-bottom: var(--space-xs);
+    position: relative;
+    padding-left: var(--space-md);
+    
+    &::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--color-neon-cyan);
+      text-shadow: var(--glow-cyan);
+    }
   }
 }
 
-// CODE
+// CODE BLOCKS
 code,
 pre {
   font-family: var(--font-family-mono);
   font-size: 0.9em;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  padding: 0.2em 0.4em;
+  color: var(--color-neon-green);
 }
 
 // EMPHASIS
 strong,
 b {
   font-weight: var(--font-weight-bold);
+  color: var(--color-neon-cyan);
+  text-shadow: var(--glow-cyan);
 }
 
-em,
-i {
-  font-style: italic;
+// SCANLINES EFFECT (optional - can be toggled)
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
 }
