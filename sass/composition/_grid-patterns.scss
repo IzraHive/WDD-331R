@@ -1,0 +1,93 @@
+/ ===================================
+// CSS Grid Patterns
+// ===================================
+
+// Auto-fit grid (cards, features)
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-lg);
+}
+
+// Auto-fill grid (gallery)
+.grid-auto-fill {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+  gap: var(--space-md);
+}
+
+// 12-column grid system
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-md);
+  
+  // Span utilities (apply to child elements)
+  > * {
+    grid-column: span 12;
+    
+    @include breakpoint(md) {
+      &:nth-child(2n) {
+        grid-column: span 6;
+      }
+    }
+    
+    @include breakpoint(lg) {
+      grid-column: span 4;
+    }
+  }
+}
+
+// Feature grid (3 columns)
+.grid-features {
+  display: grid;
+  gap: var(--space-lg);
+  
+  @include breakpoint(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include breakpoint(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Asymmetric grid
+.grid-asymmetric {
+  display: grid;
+  gap: var(--space-md);
+  
+  @include breakpoint(lg) {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+// Masonry-style grid (using auto-flow dense)
+.grid-masonry {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 200px;
+  gap: var(--space-md);
+  grid-auto-flow: dense;
+  
+  > *:nth-child(3n + 1) {
+    grid-row: span 2;
+  }
+}
+
+// Holy grail layout with Grid
+.grid-holy-grail {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  
+  @include breakpoint(lg) {
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header header header"
+      "nav main aside"
+      "footer footer footer";
+  }
+}

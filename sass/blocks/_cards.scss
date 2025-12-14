@@ -1,0 +1,90 @@
+// ===================================
+// Card Components
+// ===================================
+
+.card {
+  @include card;
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base);
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  // Card header
+  &__header {
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  // Card title
+  &__title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-xs);
+  }
+  
+  // Card body
+  &__body {
+    color: var(--color-text-light);
+  }
+  
+  // Card footer
+  &__footer {
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+// Feature card with gradient
+.card--feature {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+  background-image: var(--gradient-primary);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+  }
+}
+
+// Icon card
+.card--icon {
+  text-align: center;
+  
+  &::before {
+    content: attr(data-icon);
+    display: block;
+    font-size: 3em;
+    margin-bottom: var(--space-md);
+  }
+}
+
+// Image card
+.card--image {
+  padding: 0;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card__body {
+    padding: var(--space-md);
+  }
+}

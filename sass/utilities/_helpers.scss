@@ -1,0 +1,34 @@
+// ===================================
+// Helper Classes (using attribute selectors where possible)
+// ===================================
+
+// Since we can't add classes to HTML, we use these
+// as mixins or apply them to existing selectors
+
+// Screen reader only text
+.sr-only {
+  @include visually-hidden;
+}
+
+// Remove default list styles
+[role="list"] {
+  list-style: none;
+}
+
+// Skip to main content
+[href="#main"] {
+  @include visually-hidden;
+  
+  &:focus {
+    position: fixed;
+    top: var(--space-sm);
+    left: var(--space-sm);
+    width: auto;
+    height: auto;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-primary);
+    color: white;
+    clip: auto;
+    z-index: 9999;
+  }
+}

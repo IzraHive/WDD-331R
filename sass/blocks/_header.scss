@@ -1,0 +1,84 @@
+// ===================================
+// Header Block
+// ===================================
+
+header {
+  position: relative;
+  background: var(--gradient-primary);
+  color: white;
+  padding-block: var(--space-2xl);
+  overflow: hidden;
+  
+  // Animated background pattern (SVG or CSS)
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  // SVG background alternative
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: var(--color-background);
+    clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  h1 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-md);
+    animation: slideInDown 0.8s var(--ease-out) backwards;
+    
+    // Gradient text effect
+    @include gradient-text;
+    -webkit-text-fill-color: white; // Override for header
+  }
+  
+  p {
+    font-size: var(--font-size-lg);
+    opacity: 0.95;
+    max-width: 60ch;
+    animation: slideInDown 0.8s 0.2s var(--ease-out) backwards;
+  }
+  
+  // Links in header
+  a {
+    color: white;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    transition: text-decoration-color var(--transition-base);
+    
+    &:hover {
+      text-decoration-color: var(--color-accent);
+    }
+  }
+}
+
+// Page header (alternative style)
+.page-header {
+  text-align: center;
+  padding-block: var(--space-3xl);
+  
+  h1 {
+    margin-bottom: var(--space-sm);
+  }
+  
+  p {
+    margin-inline: auto;
+  }
+}

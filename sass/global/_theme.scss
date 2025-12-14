@@ -1,0 +1,92 @@
+// ===================================
+// Theme Variables & Custom Properties
+// ===================================
+
+:root {
+  // COLORS - Update these for your theme!
+  --color-primary: hsl(220, 90%, 56%);
+  --color-secondary: hsl(160, 80%, 45%);
+  --color-accent: hsl(340, 82%, 52%);
+  
+  --color-text: hsl(220, 20%, 20%);
+  --color-text-light: hsl(220, 15%, 45%);
+  --color-background: hsl(0, 0%, 98%);
+  --color-surface: hsl(0, 0%, 100%);
+  --color-border: hsl(220, 15%, 85%);
+  
+  // GRADIENTS
+  --gradient-primary: linear-gradient(135deg, 
+    var(--color-primary) 0%, 
+    var(--color-secondary) 100%);
+  --gradient-accent: radial-gradient(circle at top right,
+    var(--color-accent),
+    var(--color-primary));
+  
+  // SPACING - Using clamp for responsive spacing
+  --space-3xs: clamp(0.25rem, 0.5vw, 0.5rem);
+  --space-2xs: clamp(0.5rem, 1vw, 0.75rem);
+  --space-xs: clamp(0.75rem, 1.5vw, 1rem);
+  --space-sm: clamp(1rem, 2vw, 1.5rem);
+  --space-md: clamp(1.5rem, 3vw, 2rem);
+  --space-lg: clamp(2rem, 4vw, 3rem);
+  --space-xl: clamp(3rem, 6vw, 4rem);
+  --space-2xl: clamp(4rem, 8vw, 6rem);
+  --space-3xl: clamp(6rem, 12vw, 8rem);
+  
+  // TYPOGRAPHY
+  --font-family-base: system-ui, -apple-system, sans-serif;
+  --font-family-heading: 'Georgia', serif;
+  --font-family-mono: 'Courier New', monospace;
+  
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  --font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1rem + 0.65vw, 1.375rem);
+  --font-size-xl: clamp(1.375rem, 1.2rem + 0.85vw, 1.75rem);
+  --font-size-2xl: clamp(1.75rem, 1.5rem + 1.25vw, 2.5rem);
+  --font-size-3xl: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+  
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.8;
+  
+  // SHADOWS
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  
+  // BORDERS
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+  --border-radius-full: 9999px;
+  
+  --border-width: 1px;
+  --border-width-thick: 2px;
+  
+  // TRANSITIONS
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+  
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  
+  // LAYOUT
+  --content-width: 70rem;
+  --content-width-narrow: 45rem;
+  --content-width-wide: 90rem;
+}
+
+// SCSS Variables (for calculations)
+$breakpoint-sm: 36em;   // 576px
+$breakpoint-md: 48em;   // 768px
+$breakpoint-lg: 62em;   // 992px
+$breakpoint-xl: 75em;   // 1200px
+$breakpoint-2xl: 87.5em; // 1400px

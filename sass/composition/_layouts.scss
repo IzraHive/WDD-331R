@@ -1,0 +1,72 @@
+// ===================================
+// Layout Compositions
+// ===================================
+
+// Main page wrapper
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--color-background);
+}
+
+// Container composition
+.container {
+  @include container;
+}
+
+// Main content area
+main {
+  flex: 1;
+  padding-block: var(--space-xl);
+}
+
+// Section spacing
+section {
+  margin-bottom: var(--space-3xl);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Two-column layout
+.page-container {
+  @include breakpoint(lg) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+}
+
+// Sidebar layout
+aside {
+  @include breakpoint(lg) {
+    position: sticky;
+    top: var(--space-lg);
+  }
+}
+
+// Content flow
+.content-flow {
+  > * + * {
+    margin-top: var(--space-md);
+  }
+}
+
+// Full-width sections
+[class*="section"] {
+  width: 100%;
+}
+
+// Centered content
+.centered-content {
+  @include container(var(--content-width-narrow));
+  text-align: center;
+}
+
+// Wide content
+.wide-content {
+  @include container(var(--content-width-wide));
+}

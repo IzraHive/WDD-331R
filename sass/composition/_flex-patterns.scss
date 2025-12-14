@@ -1,0 +1,116 @@
+// ===================================
+// Flexbox Patterns
+// ===================================
+
+// Basic flex row
+.flex-row {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+// Flex column
+.flex-column {
+  @include flex-column;
+  gap: var(--space-md);
+}
+
+// Center content
+.flex-center {
+  @include flex-center;
+  gap: var(--space-md);
+}
+
+// Space between
+.flex-between {
+  @include flex-between;
+  gap: var(--space-md);
+}
+
+// Split layout (space between)
+.flex-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+// Cluster (inline items with wrapping)
+.flex-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+// Stack (vertical with consistent spacing)
+.flex-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  
+  &--sm {
+    gap: var(--space-sm);
+  }
+  
+  &--lg {
+    gap: var(--space-lg);
+  }
+}
+
+// Switcher (changes from horizontal to vertical)
+.flex-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  
+  > * {
+    flex-grow: 1;
+    flex-basis: calc((45rem - 100%) * 999);
+  }
+}
+
+// Auto-grid with Flexbox
+.flex-auto-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  
+  > * {
+    flex: 1 1 280px;
+  }
+}
+
+// Sidebar layout with Flexbox
+.flex-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  
+  > :first-child {
+    flex-basis: 300px;
+    flex-grow: 1;
+  }
+  
+  > :last-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: 60%;
+  }
+}
+
+// Media object
+.flex-media {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  
+  > :first-child {
+    flex-shrink: 0;
+  }
+  
+  > :last-child {
+    flex: 1;
+  }
+}

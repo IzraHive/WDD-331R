@@ -1,0 +1,35 @@
+// ===================================
+// SCSS Functions
+// ===================================
+
+// Convert px to rem
+@function rem($pixels, $base: 16) {
+  @return calc($pixels / $base) * 1rem;
+}
+
+// Get a specific spacing value
+@function spacing($key) {
+  $spacings: (
+    '3xs': var(--space-3xs),
+    '2xs': var(--space-2xs),
+    'xs': var(--space-xs),
+    'sm': var(--space-sm),
+    'md': var(--space-md),
+    'lg': var(--space-lg),
+    'xl': var(--space-xl),
+    '2xl': var(--space-2xl),
+    '3xl': var(--space-3xl)
+  );
+  
+  @return map-get($spacings, $key);
+}
+
+// Lighten a color (works with HSL)
+@function lighten-color($color, $amount) {
+  @return adjust-color($color, $lightness: $amount);
+}
+
+// Darken a color (works with HSL)
+@function darken-color($color, $amount) {
+  @return adjust-color($color, $lightness: -$amount);
+}

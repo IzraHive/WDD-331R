@@ -1,0 +1,135 @@
+// ===================================
+// SCSS Mixins
+// ===================================
+
+// RESPONSIVE BREAKPOINTS
+@mixin breakpoint($size) {
+  @if $size == sm {
+    @media (min-width: $breakpoint-sm) { @content; }
+  } @else if $size == md {
+    @media (min-width: $breakpoint-md) { @content; }
+  } @else if $size == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  } @else if $size == xl {
+    @media (min-width: $breakpoint-xl) { @content; }
+  } @else if $size == 2xl {
+    @media (min-width: $breakpoint-2xl) { @content; }
+  }
+}
+
+// UTILITY CLASSES (as mixins since we can't modify HTML)
+
+// Flexbox utilities
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Grid utilities
+@mixin grid-auto-fit($min-width: 250px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  gap: var(--space-md);
+}
+
+@mixin grid-auto-fill($min-width: 250px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
+  gap: var(--space-md);
+}
+
+// Container utilities
+@mixin container($max-width: var(--content-width)) {
+  width: 100%;
+  max-width: $max-width;
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+// Visual effects
+@mixin card {
+  background: var(--color-surface);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-md);
+}
+
+@mixin gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Animations
+@mixin fade-in {
+  animation: fadeIn 0.6s var(--ease-out) forwards;
+}
+
+@mixin slide-in-up {
+  animation: slideInUp 0.6s var(--ease-out) forwards;
+}
+
+// Shapes
+@mixin clip-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+// Focus states
+@mixin focus-outline {
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+// Hover lift effect
+@mixin hover-lift {
+  transition: transform var(--transition-base), 
+              box-shadow var(--transition-base);
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+// Truncate text
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Line clamp
+@mixin line-clamp($lines: 3) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Visually hidden (accessible but invisible)
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

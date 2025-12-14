@@ -1,0 +1,159 @@
+// ===================================
+// Content Section Blocks
+// ===================================
+
+// General section styling
+section {
+  scroll-margin-top: 80px; // For smooth scroll with fixed nav
+  
+  header {
+    background: transparent;
+    padding: 0;
+    margin-bottom: var(--space-xl);
+    
+    &::before,
+    &::after {
+      display: none;
+    }
+    
+    h2 {
+      color: var(--color-text);
+      font-size: var(--font-size-2xl);
+      animation: slideInLeft 0.6s var(--ease-out);
+    }
+    
+    p {
+      color: var(--color-text-light);
+      font-size: var(--font-size-lg);
+      animation: slideInLeft 0.6s 0.1s var(--ease-out) backwards;
+    }
+  }
+}
+
+// Guidelines section
+#guidelines {
+  .container {
+    @include container(var(--content-width-narrow));
+  }
+  
+  h3 {
+    color: var(--color-primary);
+    margin-top: var(--space-xl);
+    
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+  
+  ul {
+    list-style: none;
+    
+    li {
+      position: relative;
+      padding-left: var(--space-lg);
+      
+      &::before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--color-secondary);
+        font-weight: var(--font-weight-bold);
+        font-size: 1.2em;
+      }
+    }
+  }
+  
+  a {
+    font-weight: var(--font-weight-medium);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+    
+    &:hover {
+      text-decoration-color: var(--color-accent);
+    }
+  }
+}
+
+// Contribute section
+#contribute {
+  background: var(--color-surface);
+  padding: var(--space-2xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  
+  ol {
+    list-style: none;
+    counter-reset: step-counter;
+    
+    li {
+      position: relative;
+      padding-left: var(--space-2xl);
+      counter-increment: step-counter;
+      
+      &::before {
+        content: counter(step-counter);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 32px;
+        height: 32px;
+        background: var(--gradient-primary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: var(--font-weight-bold);
+      }
+      
+      &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        left: 15px;
+        top: 40px;
+        bottom: -16px;
+        width: 2px;
+        background: linear-gradient(
+          to bottom,
+          var(--color-primary),
+          transparent
+        );
+      }
+    }
+  }
+}
+
+// Files section
+#files {
+  .container {
+    @include grid-auto-fit(300px);
+  }
+  
+  a {
+    @include card;
+    @include hover-lift;
+    display: block;
+    
+    strong {
+      display: block;
+      font-size: var(--font-size-lg);
+      color: var(--color-primary);
+      margin-bottom: var(--space-xs);
+    }
+    
+    span {
+      display: block;
+      color: var(--color-text-light);
+      font-size: var(--font-size-sm);
+    }
+    
+    // Icon using ::before
+    &::before {
+      content: '📄';
+      display: block;
+      font-size: 2em;
+      margin-bottom: var(--space-sm);
+    }
+  }
+}

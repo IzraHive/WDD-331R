@@ -1,0 +1,32 @@
+// ===================================
+// Main SCSS File - Import Order Matters!
+// ===================================
+
+// 1. GLOBAL STYLES
+// Foundation styles that apply everywhere
+@import "global/reset";
+@import "global/theme";
+@import "global/typography";
+
+// 2. UTILITIES
+// Mixins, functions, and helpers used throughout
+@import "utilities/functions";
+@import "utilities/mixins";
+@import "utilities/animations";
+@import "utilities/helpers";
+
+// 3. COMPOSITIONS
+// Layout patterns and structural styles
+@import "composition/layouts";
+@import "composition/grid-patterns";
+@import "composition/flex-patterns";
+
+// 4. BLOCKS
+// Component-specific styles
+@import "blocks/header";
+@import "blocks/navigation";
+@import "blocks/hero";
+@import "blocks/content-sections";
+@import "blocks/cards";
+@import "blocks/profiles";
+@import "blocks/footer";
