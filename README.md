@@ -1,73 +1,31 @@
-# CSS Style Stage Project
+# Style Stage Source Sass
 
-A themed CSS styling project following CUBE CSS architecture principles.
+> A minimal starter for Style Stage submissions that includes the source Sass used to create the base Style Stage theme, and the source HTML.
 
-## Team Members
-- Israel Brown
-- Nathaniel Dunham
-- Ulises Rivero
+[Read the full guidelines](https://stylestage.dev/guidelines/) to ensure your final styles will be ready for inclusion in the showcase!
 
-## Theme
-"Neon Nights" - A futuristic cyberpunk aesthetic with glowing neon accents, dark backgrounds, grid patterns, and glitch effects. Inspired by Blade Runner, Cyberpunk 2077, and retro-futuristic design.
+## To Use
 
-## Topics Covered
-This project demonstrates the following CSS/SCSS concepts:
-- ✅ SCSS (variables, nesting, mixins, functions)
-- ✅ Advanced CSS Selectors
-- ✅ Flexbox layouts
-- ✅ CSS Grid layouts
-- ✅ Animations & Transitions
-- ✅ Web Typography
-- ✅ Shapes & Gradients
-- ✅ SVG integration
-- ✅ Custom Properties & Functions
-- ✅ CUBE CSS Architecture
+1. Fork or select "Use this Template"
+2. Once cloned to your computer, run `npm i` to install dependencies needed to compile the Sass
+3. Run `npm start` to launch a hot-reload server that watches for Sass changes.
 
-## Setup Instructions
+The final stylesheet will be placed in `public/style.css`.
 
-### Prerequisites
-- Node.js installed
-- Git installed
+You may alter anything and everything, but keep in mind that the final stylesheet should be unminified and ideally non-prefixed. All Style Stage submissions are parsed with `autoprefixer` during the publish build process, and unminified stylesheets are easier for visitors to learn from.
 
-### Installation
-1. Clone the repository
-   ```bash
-   git clone https://github.com/IzraHive/WDD-331R
-   cd style-stage-project
-   ```
+> If you change the output stylesheet name, be sure to update the link to it in `index.html`
 
-2. Install dependencies
-   ```bash
-   npm install
-   ```
+### Publish to Github Pages
+This starter uses github actions to auto deploy `public` directory to `gh-pages` branch whenever there is a push to `main` branch.
+1. Go to repo settings, under Github Pages, select `gh-pages` as source.
+2. Go to https://username.github.io/stylestage-sass to see your published site.
 
-3. Start development server
-   ```bash
-   npm run start
-   ```
+## Submitting Your Stylesheet
 
-4. Open browser to `http://localhost:1337`
+Once you've created your stylesheet with this starter, publish this as a public repo and then you can use the GitHub link to the "raw" version of the `public/style.css` file for your final submission.
 
-### Available Commands
-- `npm run start` - Start dev server with auto-compile
-- `npm run scss` - Compile SCSS once
-- `npm run watch` - Watch SCSS files for changes
-- `npm run serve` - Start browser-sync server
+If you choose to publish to github pages, you can use:
+https://username.github.io/stylestage-sass/style.css
 
-## Development Workflow
-1. Always `git pull` before starting work
-2. Work on your assigned sections
-3. Test locally with `npm run start`
-4. Commit and push changes regularly
-5. Communicate with team members
-
-## Project Guidelines
-- ❌ Do NOT modify index.html
-- ❌ Do NOT use JavaScript
-- ❌ Do NOT use CSS libraries
-- ✅ Must be responsive
-- ✅ Must use SCSS
-- ✅ All CSS must be original work
-
-## License
-This project is for educational purposes.
+You will need to fork [the main Style Stage repo](https://github.com/5t3ph/stylestage) to add your stylesheet, as [explained in the FAQ](https://stylestage.dev/guidelines/#how-do-i-create-a-pull-request-pr).
