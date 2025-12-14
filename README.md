@@ -8,7 +8,7 @@ A themed CSS styling project following CUBE CSS architecture principles.
 - Ulises Rivero
 
 ## Theme
-[Describe your chosen theme here]
+"Neon Nights" - A futuristic cyberpunk aesthetic with glowing neon accents, dark backgrounds, grid patterns, and glitch effects. Inspired by Blade Runner, Cyberpunk 2077, and retro-futuristic design.
 
 ## Topics Covered
 This project demonstrates the following CSS/SCSS concepts:
