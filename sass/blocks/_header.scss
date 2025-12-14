@@ -111,18 +111,18 @@ header {
     z-index: 1;
     text-align: center;
 
-    // Fix GitHub star icon size
+    // GitHub star link styling
     .link-github {
       display: inline-flex;
       align-items: center;
-      gap: 0.4em; // spacing between icon and text
+      gap: 0.4em;           // spacing between icon and text
       font-size: var(--font-size-md);
 
       svg {
-        width: 1em;
-        height: 1em;
+        width: 24px;        // fixed size for consistency
+        height: 24px;
         vertical-align: middle;
-        fill: currentColor; // optional: match text color
+        fill: currentColor; // matches the text color
       }
     }
   }
@@ -158,7 +158,7 @@ header {
       animation: glitch 3s infinite linear alternate-reverse;
     }
   }
-  
+
   p {
     font-size: var(--font-size-lg);
     opacity: 0.9;

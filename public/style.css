@@ -802,8 +802,8 @@ header p::before {
   font-size: var(--font-size-md);
 }
 .container .link-github svg {
-  width: 1em;
-  height: 1em;
+  width: 24px;
+  height: 24px;
   vertical-align: middle;
   fill: currentColor;
 }
