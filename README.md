@@ -3,9 +3,9 @@
 A themed CSS styling project following CUBE CSS architecture principles.
 
 ## Team Members
-- [Member 1 Name]
-- [Member 2 Name]
-- [Member 3 Name]
+- Israel Brown
+- Nathaniel Dunham
+- Ulises Rivero
 
 ## Theme
 [Describe your chosen theme here]
@@ -32,7 +32,7 @@ This project demonstrates the following CSS/SCSS concepts:
 ### Installation
 1. Clone the repository
    ```bash
-   git clone [your-repo-url]
+   git clone https://github.com/IzraHive/WDD-331R
    cd style-stage-project
    ```
 
