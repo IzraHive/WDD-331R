@@ -1,7 +1,54 @@
 // ===================================
-// Keyframe Animations
+// CYBERPUNK ANIMATIONS
 // ===================================
 
+// GLITCH EFFECT
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes glitchColor {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(180deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+// NEON FLICKER
+@keyframes neonFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow: var(--glow-cyan);
+  }
+  20%, 24%, 55% {
+    opacity: 0.7;
+    text-shadow: none;
+  }
+}
+
+// FADE IN ANIMATIONS
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -11,7 +58,7 @@
   }
 }
 
-@keyframes slideInUp {
+@keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(30px);
@@ -22,7 +69,7 @@
   }
 }
 
-@keyframes slideInDown {
+@keyframes fadeInDown {
   from {
     opacity: 0;
     transform: translateY(-30px);
@@ -33,10 +80,11 @@
   }
 }
 
+// SLIDE ANIMATIONS
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-50px);
   }
   to {
     opacity: 1;
@@ -47,7 +95,7 @@
 @keyframes slideInRight {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(50px);
   }
   to {
     opacity: 1;
@@ -55,17 +103,39 @@
   }
 }
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
+// NEON BORDER ANIMATION
+@keyframes neonBorder {
+  0% {
+    box-shadow: 
+      0 0 5px var(--color-neon-cyan),
+      0 0 10px var(--color-neon-cyan),
+      inset 0 0 5px var(--color-neon-cyan);
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+  50% {
+    box-shadow: 
+      0 0 10px var(--color-neon-pink),
+      0 0 20px var(--color-neon-pink),
+      inset 0 0 10px var(--color-neon-pink);
+  }
+  100% {
+    box-shadow: 
+      0 0 5px var(--color-neon-cyan),
+      0 0 10px var(--color-neon-cyan),
+      inset 0 0 5px var(--color-neon-cyan);
   }
 }
 
+// FLOAT ANIMATION
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+// ROTATE
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -75,29 +145,38 @@
   }
 }
 
-@keyframes pulse {
+// SCALE PULSE
+@keyframes scalePulse {
   0%, 100% {
-    opacity: 1;
+    transform: scale(1);
   }
   50% {
-    opacity: 0.5;
+    transform: scale(1.05);
   }
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
+// SCAN LINE
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
   }
-  50% {
-    transform: translateY(-10px);
+  100% {
+    transform: translateY(100vh);
   }
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
+// TYPING EFFECT
+@keyframes typing {
+  from {
+    width: 0;
   }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
   50% {
-    transform: translateY(-20px);
+    border-color: transparent;
   }
 }
