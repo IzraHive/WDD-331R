@@ -1,84 +1,109 @@
 // ===================================
-// Header Block
+// CYBERPUNK HEADER
 // ===================================
 
 header {
   position: relative;
-  background: var(--gradient-primary);
+  background: var(--color-background-alt);
   color: white;
-  padding-block: var(--space-2xl);
+  padding-block: var(--space-3xl);
   overflow: hidden;
+  border-bottom: 3px solid var(--color-neon-cyan);
+  box-shadow: 0 0 20px var(--color-neon-cyan);
   
-  // Animated background pattern (SVG or CSS)
+  // Animated grid background
   &::before {
     content: '';
     position: absolute;
     inset: 0;
     background-image: 
-      radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
-    animation: float 20s ease-in-out infinite;
-    pointer-events: none;
+      linear-gradient(var(--color-neon-cyan) 2px, transparent 2px),
+      linear-gradient(90deg, var(--color-neon-cyan) 2px, transparent 2px);
+    background-size: 100px 100px;
+    opacity: 0.1;
+    animation: gridMove 20s linear infinite;
   }
   
-  // SVG background alternative
+  @keyframes gridMove {
+    0% {
+      transform: perspective(500px) rotateX(60deg) translateZ(0);
+    }
+    100% {
+      transform: perspective(500px) rotateX(60deg) translateZ(100px);
+    }
+  }
+  
+  // Neon circuit pattern
   &::after {
     content: '';
     position: absolute;
-    bottom: -2px;
-    left: 0;
+    top: 0;
     right: 0;
-    height: 100px;
-    background: var(--color-background);
-    clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(
+      circle,
+      var(--color-neon-pink) 0%,
+      transparent 70%
+    );
+    opacity: 0.3;
+    animation: float 8s ease-in-out infinite;
   }
   
   .container {
     position: relative;
     z-index: 1;
+    text-align: center;
   }
   
   h1 {
     font-size: var(--font-size-3xl);
     margin-bottom: var(--space-md);
-    animation: slideInDown 0.8s var(--ease-out) backwards;
+    animation: fadeInDown 1s var(--ease-out), neonFlicker 5s infinite;
+    position: relative;
+    display: inline-block;
     
-    // Gradient text effect
-    @include gradient-text;
-    -webkit-text-fill-color: white; // Override for header
+    // Glitch effect layers
+    &::before,
+    &::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    &::before {
+      left: 2px;
+      text-shadow: -2px 0 var(--color-neon-pink);
+      clip: rect(44px, 450px, 56px, 0);
+      animation: glitch 5s infinite linear alternate-reverse;
+    }
+    
+    &::after {
+      left: -2px;
+      text-shadow: -2px 0 var(--color-neon-cyan);
+      clip: rect(44px, 450px, 56px, 0);
+      animation: glitch 3s infinite linear alternate-reverse;
+    }
   }
   
   p {
     font-size: var(--font-size-lg);
-    opacity: 0.95;
+    opacity: 0.9;
     max-width: 60ch;
-    animation: slideInDown 0.8s 0.2s var(--ease-out) backwards;
-  }
-  
-  // Links in header
-  a {
-    color: white;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
-    transition: text-decoration-color var(--transition-base);
+    margin-inline: auto;
+    animation: fadeInUp 1s 0.3s var(--ease-out) backwards;
+    color: var(--color-text-light);
+    font-family: var(--font-family-mono);
     
-    &:hover {
-      text-decoration-color: var(--color-accent);
+    &::before {
+      content: '> ';
+      color: var(--color-neon-cyan);
+      text-shadow: var(--glow-cyan);
     }
   }
 }
 
-// Page header (alternative style)
-.page-header {
-  text-align: center;
-  padding-block: var(--space-3xl);
-  
-  h1 {
-    margin-bottom: var(--space-sm);
-  }
-  
-  p {
-    margin-inline: auto;
-  }
-}
+// Add data-text attribute via JavaScript or keep it simple
